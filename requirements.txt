@@ -1,0 +1,10 @@
+certifi==2024.2.2
+charset-normalizer==3.3.2
+idna==3.6
+peewee==3.17.1
+pyTelegramBotAPI==4.16.1
+requests==2.31.0
+setuptools==66.1.1
+telebot==0.0.5
+urllib3==2.2.1
+replicate==0.25.2
