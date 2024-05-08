@@ -38,7 +38,7 @@ def handle_text(message):
     elif user_input == 'Cancel':
         set_activity(user, None)
         message = "Choose what you want"
-        buttons = ['Repeat Learned Words', 'Learn New Word', 'Exam', 'Practice']
+        buttons = ['Repeat Learned Words', 'Learn New Word', 'Exam']
         send_message_with_buttons(chat_id, message, buttons, bot, None)
     elif user_input == 'Repeat Learned Words':
         set_activity(user, 'words repeating')
@@ -48,47 +48,6 @@ def handle_text(message):
         send_word_to_user_for_repeating(chat_id, bot, user)
     elif user_input == 'Next':
         send_word_to_user_for_repeating(chat_id, bot, user)
-    elif user_input == 'Practice':
-        message = "Choose what you want"
-        buttons = ['Practice Tenses', 'Chat', 'Cancel']
-        send_message_with_buttons(chat_id, message, buttons, bot, None)
-    elif user_input == 'Practice Tenses':
-        message = "Choose which tense you would like to practice"
-        buttons = ['Past', 'Present', 'Future', 'Cancel']
-        send_message_with_buttons(chat_id, message, buttons, bot, None)
-
-    elif user_input == 'Past':
-        message = 'Past...!'
-        buttons = ['Simple', 'Perfect', 'Continuous', 'Perfect Continuous', 'Cancel']
-        set_activity(user, 'tense')
-        set_tense(user, 'past')
-        send_message_with_buttons(chat_id, message, buttons, bot, None)
-    elif user_input == 'Present':
-        message = "Present..."
-        buttons = ['Simple', 'Perfect', 'Continuous', 'Perfect Continuous', 'Cancel']
-        set_activity(user, 'tense')
-        set_tense(user, 'present')
-        send_message_with_buttons(chat_id, message, buttons, bot, None)
-    elif user_input == 'Future':
-        message = "Future..."
-        buttons = ['Simple', 'Perfect', 'Continuous', 'Perfect Continuous', 'Cancel']
-        set_activity(user, 'tense')
-        set_tense(user, 'future')
-        send_message_with_buttons(chat_id, message, buttons, bot, None)
-
-    elif user_input == 'Simple':
-        set_tense(user, 'simple')
-        process_tense_practice(chat_id, bot, user)
-    elif user_input == 'Perfect':
-        set_tense(user, 'perfect')
-        process_tense_practice(chat_id, bot, user)
-    elif user_input == 'Continuous':
-        set_tense(user, 'continuous')
-        process_tense_practice(chat_id, bot, user)
-    elif user_input == 'Perfect Continuous':
-        set_tense(user, 'perfect continuous')
-        process_tense_practice(chat_id, bot, user)
-
     else:
         message = ""
         buttons = ['Cancel']

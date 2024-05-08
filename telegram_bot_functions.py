@@ -16,10 +16,8 @@ def send_message_with_buttons(chat_id, message_text, buttons, bot, audio_path):
 
 
 def send_word_to_user_learning(chat_id, bot, user):
-    # words = get_list_of_words(user.username)
     word = get_new_word_from_db(user.username)
-    buttons = ['Add to learning', 'Already know', 'Repeat Learned Words', 'Exam', 'Practice']
-    # for word in words:
+    buttons = ['Add to learning', 'Already know', 'Repeat Learned Words', 'Exam']
     audio_path, word_data = get_word_data(word[0])
     record_last_given_word(user, word[0])
     send_message_with_buttons(chat_id, word_data, buttons, bot, audio_path)
@@ -33,7 +31,7 @@ def send_word_to_user_for_repeating(chat_id, bot, user):
         record_last_given_word(user, word[0])
         send_message_with_buttons(chat_id, word_data, buttons, bot, audio_path)
     else:
-        buttons = ['Learn New Word', 'Exam', 'Repeat Learned Words', 'Practice']
+        buttons = ['Learn New Word', 'Exam', 'Repeat Learned Words']
         message = 'All words are learned, add new words or exam yourself!'
         send_message_with_buttons(chat_id, message, buttons, bot, None)
 
@@ -46,7 +44,7 @@ def send_word_to_user_examination(chat_id, bot, user):
         record_last_given_word(user, word[0])
         send_message_with_buttons(chat_id, word_data, buttons, bot, None)
     else:
-        buttons = ['Learn New Word', 'Repeat Learned Words', 'Practice']
+        buttons = ['Learn New Word', 'Repeat Learned Words']
         message = 'All words are examined, Congratulations!'
         send_message_with_buttons(chat_id, message, buttons, bot, None)
 
@@ -63,8 +61,6 @@ def check_user_answer_exam(chat_id, bot, user, user_answer):
         send_message_with_buttons(chat_id, message, buttons, bot, None)
 
 
-def process_tense_practice(chat_id, bot, user):
-    pass
 
 
 

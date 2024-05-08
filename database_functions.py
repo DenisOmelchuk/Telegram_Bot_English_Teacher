@@ -1,4 +1,4 @@
-from db_tables import db, LLAMAUserWords
+from db_tables import db
 from db_tables import User, UserWords, Translation, Example, Word
 import peewee
 from datetime import datetime, timedelta

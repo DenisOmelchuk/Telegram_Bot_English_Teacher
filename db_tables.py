@@ -63,13 +63,6 @@ class Example(peewee.Model):
         database = db
 
 
-class LLAMAUserWords(peewee.Model):
-    user = peewee.ForeignKeyField(User, backref='llama_user_words', on_delete='CASCADE')
-    word = peewee.ForeignKeyField(Word, backref='llama_user_words')
-    count_of_use = peewee.IntegerField(default=0)
-
-    class Meta:
-        database = db
 
 
 
