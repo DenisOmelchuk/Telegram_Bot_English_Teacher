@@ -148,7 +148,6 @@ def mark_word_as_known(user):
     translation_id = user.last_given_translation_id
     UserWords.create(user=user, translation=translation_id, known_by_user=True)
     translation = Translation.get(id=translation_id)
-    LLAMAUserWords.get_or_create(user=user.username, word=translation.word)
 
 
 def mark_word_as_ready_for_exam(user):
